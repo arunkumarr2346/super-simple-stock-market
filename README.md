@@ -63,9 +63,30 @@ To get the Volume Weighted Stock Price based on trades in past 15 minutes.
 ```python
 print(s.volume_weighted_stock_price())
 ```
-To get the Volume Weighted Stock Price based on trades in past 15 minutes.
+To get the GBCE All Share Index.
 ```python
+from random import randint
 from calculate_gbce_all_share_index import calculate_gbce_all_share_index
+from stock_metrics import StockMetrics
+
+
+# add random trades for all share index
+for symbol in gbce_ref_df_data[FieldNames.STOCK_SYMBOL].tolist():
+    r1 = randint(5, 15)
+    p1 = randint(50, 100)
+    s = StockMetrics(
+        stock_symbol=symbol,
+        price=p1,
+        gbce_ref_df=gbce_ref_df_data,
+        gbce_transaction_df=gbce_transaction_df_data,
+    )
+    for i in range(1, r1):
+        s.record_trade(
+            share_quantity=i,
+            transaction_type="buy",
+            traded_price=p1+i,
+        )
+    print(s)
 
 print(calculate_gbce_all_share_index(gbce_transaction_df_data))
 ```

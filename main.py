@@ -7,48 +7,6 @@ from calculate_geometric_mean import calculate_geometric_mean
 from constants import FieldNames
 from stock_metrics import StockMetrics
 
-# gbce_ref_df_data = pd.DataFrame(
-#     [
-#         {
-#             'stock_symbol': 'TEA',
-#             'stock_type': 'Common',
-#             'last_dividend': 0,
-#             'par_value': 100
-#         },
-#         {
-#             'stock_symbol': 'POP',
-#             'stock_type': 'Common',
-#             'last_dividend': 8,
-#             'par_value': 100
-#         },
-#         {
-#             'stock_symbol': 'ALE',
-#             'stock_type': 'Common',
-#             'last_dividend': 23,
-#             'par_value': 60
-#          },
-#         {
-#             'stock_symbol': 'GIN',
-#             'stock_type': 'Preferred',
-#             'last_dividend': 8,
-#             'par_value': 100,
-#             'fixed_dividend': 2.0
-#          },
-#         {
-#             'stock_symbol': 'JOE',
-#             'stock_type': 'Common',
-#             'last_dividend': 13,
-#             'par_value': 250,
-#             'fixed_dividend': ' '
-#          },
-#         {
-#             'stock_symbol': 'AAA',
-#             'stock_type': 'Common',
-#             'last_dividend': " ",
-#             'par_value': " "
-#         }
-#     ]
-# )
 
 gbce_ref_df_data = pd.read_csv("gbce_ref_raw.csv")
 gbce_transaction_df_data = pd.DataFrame(
