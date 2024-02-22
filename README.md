@@ -23,16 +23,17 @@ pip install pandas
 ```
 
 ## Usage
-Create an object for the stock metrics. 
-```python
-from stock_metrics import StockMetrics
+Create an object for the stock metrics.
 
-from constants import FieldNames
+```python
+from sssm.stock_metrics import StockMetrics
+
+from sssm.constants import FieldNames
 
 gbce_ref_df_data = pd.read_csv("gbce_ref_processed.csv")
 gbce_transaction_df_data = pd.DataFrame(
     columns=[
-        FieldNames.STOCK_SYMBOL, FieldNames.QUANTITY, FieldNames.TRANSACTION_TYPE, 
+        FieldNames.STOCK_SYMBOL, FieldNames.QUANTITY, FieldNames.TRANSACTION_TYPE,
         FieldNames.TRADED_PRICE, FieldNames.TRANSACTION_TIMESTAMP
     ],
 )
@@ -53,9 +54,11 @@ print(s.pe_ratio())
 ```
 To record a new trade 
 ```python
+from sssm.constants import TransactionType
+
 s.record_trade(
     share_quantity=20,
-    transaction_type="buy",
+    transaction_type=TransactionType.BUY,
     traded_price=100,
 )
 ```
@@ -64,11 +67,12 @@ To get the Volume Weighted Stock Price based on trades in past 15 minutes.
 print(s.volume_weighted_stock_price())
 ```
 To get the GBCE All Share Index.
+
 ```python
 from random import randint
-from calculate_gbce_all_share_index import calculate_gbce_all_share_index
-from stock_metrics import StockMetrics
-
+from sssm.calculate_gbce_all_share_index import calculate_gbce_all_share_index
+from sssm.stock_metrics import StockMetrics
+from sssm.constants import TransactionType
 
 # add random trades for all share index
 for symbol in gbce_ref_df_data[FieldNames.STOCK_SYMBOL].tolist():
@@ -83,8 +87,8 @@ for symbol in gbce_ref_df_data[FieldNames.STOCK_SYMBOL].tolist():
     for i in range(1, r1):
         s.record_trade(
             share_quantity=i,
-            transaction_type="buy",
-            traded_price=p1+i,
+            transaction_type=TransactionType.BUY,
+            traded_price=p1 + i,
         )
     print(s)
 
