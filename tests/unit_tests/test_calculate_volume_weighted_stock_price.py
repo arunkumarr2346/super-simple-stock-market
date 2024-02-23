@@ -1,6 +1,6 @@
-import numpy as np
 import unittest
 
+import numpy as np
 import pandas as pd
 
 from sssm.calculate_volume_weighted_stock_price import calculate_volume_weighted_stock_price

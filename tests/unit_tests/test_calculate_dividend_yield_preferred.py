@@ -1,4 +1,5 @@
 import unittest
+
 from sssm.calculate_dividend_yield_preferred import calculate_dividend_yield_preferred
 
 

@@ -6,7 +6,6 @@ from sssm.calculate_gbce_all_share_index import calculate_gbce_all_share_index
 from sssm.constants import FieldNames
 from sssm.stock_metrics import StockMetrics
 
-
 gbce_ref_df_data = pd.read_csv("sssm/gbce_ref_raw.csv")
 gbce_transaction_df_data = pd.DataFrame(
     columns=[FieldNames.STOCK_SYMBOL, FieldNames.QUANTITY, FieldNames.TRANSACTION_TYPE, FieldNames.TRADED_PRICE,

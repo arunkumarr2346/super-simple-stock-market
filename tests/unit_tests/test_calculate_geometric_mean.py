@@ -1,6 +1,6 @@
-import numpy as np
 import unittest
 
+import numpy as np
 import pandas as pd
 
 from sssm.calculate_geometric_mean import calculate_geometric_mean
