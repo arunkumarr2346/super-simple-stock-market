@@ -26,11 +26,12 @@ pip install pandas
 Create an object for the stock metrics.
 
 ```python
-from sssm.stock_metrics import StockMetrics
+import pandas as pd 
 
+from sssm.stock_metrics import StockMetrics
 from sssm.constants import FieldNames
 
-gbce_ref_df_data = pd.read_csv("gbce_ref_processed.csv")
+gbce_ref_df_data = pd.read_csv(r"./sssm/gbce_ref_processed.csv")
 gbce_transaction_df_data = pd.DataFrame(
     columns=[
         FieldNames.STOCK_SYMBOL, FieldNames.QUANTITY, FieldNames.TRANSACTION_TYPE,
